@@ -40,7 +40,8 @@ La infraestructura de almacenamiento cuenta con funciones avanzadas de protecci�
 
 • Estas medidas de protección se ven complementadas con el servicio de backup a cinta tradicional y el servicio de backup a disco prestado por la infraestructura de backup de la UC3M.
 
-``` Modelo                                                             
+``` 
+Modelo                                                             
 function getLibro($id)                                                                
 {                                                                  
 $db = getConnection();                                          
@@ -136,3 +137,14 @@ El controlador no pasa objetos de dominio (el modelo) a la vista aunque puede da
 • Para producir la salida, en ocasiones las vistas pueden solicitar más información a los modelos. En ocasiones, el controlador será el responsable de solicitar todos los datos a los modelos y de enviarlos a las vistas, haciendo de puente entre unos y otros. Sería corriente tanto una cosa como la otra, todo depende de nuestra implementación; por eso esa flecha la hemos coloreado de otro color.
 
 • Las vistas envían al usuario la salida. Aunque en ocasiones esa salida puede ir de vuelta al controlador y sería éste el que hace el envío al cliente, por eso he puesto la flecha en otro color.
+# Controlador
+Un controlador es responsable de controlar la forma en que un usuario interactúa con una aplicación MVC. Un controlador contiene la lógica de control de flujo para una aplicación ASP.NET MVC. Un controlador determina qué respuesta devolver a un usuario cuando un usuario realiza una solicitud del explorador.
+
+• Recibe los eventos de entrada (un clic, un cambio en un campo de texto, etc.).
+
+• Contiene reglas de gestión de eventos, del tipo "SI Evento Z, entonces Acción W". Estas acciones pueden suponer peticiones al modelo o a las vistas. Una de estas peticiones a las vistas puede ser una llamada al método "Actualizar()". Una petición al modelo puede ser "Obtener_tiempo_de_entrega ( nueva_orden_de_venta )". 
+
+# Logica del negocio
+La lógica del negocio, aparte de marcar un comportamiento cuando ocurren cosas dentro de un software, también tiene normas sobre lo que se puede hacer y lo que no se puede hacer. Eso también se conoce como reglas del negocio. Bien, pues en el MVC la lógica del negocio queda del lado de los modelos. Ellos son los que deben saber cómo operar en diversas situaciones y las cosas que pueden permitir que ocurran en el proceso de ejecución de una aplicación.
+
+Por ejemplo, pensemos en un sistema que implementa usuarios. Los usuarios pueden realizar comentarios. Pues si en un modelo nos piden eliminar un usuario nosotros debemos borrar todos los comentarios que ha realizado ese usuario también. Eso es una responsabilidad del modelo y forma parte de lo que se llama la lógica del negocio.
